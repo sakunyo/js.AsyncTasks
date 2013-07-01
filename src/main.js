@@ -61,7 +61,7 @@ AsyncTasks.prototype = {
   next: function (status) {
     "use strict";
     // status が渡ってこない場合は true をセットする
-    this.flags[this.flags.length] = status || true;
+    this.flags[this.flags.length] = !!(status);
 
     // runs に渡った関数の数と flags の数が一致したら complete() を実行する
     if (this.funcs.length === this.flags.length) this.complete();
